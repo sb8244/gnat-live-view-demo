@@ -9,6 +9,11 @@ defmodule NatsLiveview.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
+      %{
+        id: Gnat,
+        start: {Gnat, :start_link, [%{host: '127.0.0.1', port: 4222}, [name: Gnat]]}
+      },
+      {NatsLiveview.GnatSubscriber, [topic: "pawnee"]},
       NatsLiveviewWeb.Endpoint
       # Starts a worker by calling: NatsLiveview.Worker.start_link(arg)
       # {NatsLiveview.Worker, arg},
