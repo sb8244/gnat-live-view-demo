@@ -19,6 +19,9 @@ config :nats_liveview, NatsLiveviewWeb.Endpoint,
       "--watch-stdin",
       cd: Path.expand("../assets", __DIR__)
     ]
+  ],
+  live_view: [
+    signing_salt: "SECRET_SALT"
   ]
 
 # ## SSL Support

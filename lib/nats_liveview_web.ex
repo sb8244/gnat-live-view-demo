@@ -23,6 +23,7 @@ defmodule NatsLiveviewWeb do
 
       import Plug.Conn
       import NatsLiveviewWeb.Gettext
+      import Phoenix.LiveView.Controller
       alias NatsLiveviewWeb.Router.Helpers, as: Routes
     end
   end
@@ -35,7 +36,7 @@ defmodule NatsLiveviewWeb do
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
-
+      import Phoenix.LiveView.Helpers
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
@@ -50,6 +51,7 @@ defmodule NatsLiveviewWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 
